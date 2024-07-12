@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Track Attendance</title>
+    <link rel="stylesheet" href="/public/styles.css" />
+    <style>
+      .progress-container {
+        margin-bottom: 2em;
+      }
+      .progress {
+        background-color: #ddd;
+        height: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 10px 10px 0px 10px;
+      }
+      .progress-bar {
+        background-color: #4caf50;
+        height: 100%;
+      }
+      .progress-text {
+        padding-left: 10px;
+        margin-top: 5px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/subject">Subjects</a>
+      <a href="/attendance">Mark Attendance</a>
+      <a href="/attendance/track">Track</a>
+      <a href="/auth/logout">Logout</a>
+    </nav>
+    <div class="container">
+      <h1>Track Attendance</h1>
+
+      <% subjects.forEach(subject => { %>
+      <div class="progress-container">
+        <div class="progress">
+          <div
+            class="progress-bar"
+            style="width: <%= subject.attendancePercentage %>%"
+          ></div>
+        </div>
+        <div class="progress-text">
+          <%= subject.name %> - <%= subject.attendancePercentage.toFixed(2) %>%
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </body>
+</html>

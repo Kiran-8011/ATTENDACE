@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Subjects</title>
+    <link rel="stylesheet" href="/public/styles.css" />
+  </head>
+  <style>
+    .f {
+      margin: 40px;
+    }
+    .add {
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .add input {
+      width: 70%;
+      margin-right: 5px;
+    }
+    .add button {
+      width: 20%;
+    }
+  </style>
+  <body>
+    <nav>
+      <a href="/subject">Subjects</a>
+      <a href="/attendance">Mark Attendance</a>
+      <a href="/attendance/track">Track </a>
+      <a href="/auth/logout">Logout</a>
+    </nav>
+    <div class="container">
+      <h1>Subjects</h1>
+
+      <form class="f" method="post" action="/subject/add">
+        <div class="add">
+          <input type="text" name="name" placeholder="Subject Name" required />
+          <button type="submit">Add Subject</button>
+        </div>
+      </form>
+
+      <ul>
+        <% subjects.forEach(subject => { %>
+        <li>
+          <%= subject.name %>
+          <form method="post" action="/subject/delete" style="display: inline">
+            <input type="hidden" name="subjectId" value="<%= subject._id %>" />
+            <button type="submit">Delete</button>
+          </form>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+  </body>
+</html>

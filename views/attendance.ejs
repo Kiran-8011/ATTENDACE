@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Attendance</title>
+    <link rel="stylesheet" href="/public/styles.css" />
+  </head>
+  <style>
+    form {
+      margin: 40px;
+      padding: 40px;
+    }
+    button {
+      width: 30%;
+    }
+    .but {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+  <body>
+    <nav>
+      <a href="/subject">Subjects</a>
+      <a href="/attendance">Mark Attendance</a>
+      <a href="/attendance/track">Track</a>
+      <a href="/auth/logout">Logout</a>
+    </nav>
+    <div class="container">
+      <h1>Mark Attendance</h1>
+      <form method="post" action="/attendance/mark">
+        <input type="date" name="date" required />
+        <select name="status" required>
+          <option value="present">Present</option>
+          <option value="absent">Absent</option>
+        </select>
+        <select name="subjectId" required>
+          <% subjects.forEach(subject => { %>
+          <option value="<%= subject._id %>"><%= subject.name %></option>
+          <% }) %>
+        </select>
+        <div class="but"><button type="submit">Mark</button></div>
+      </form>
+    </div>
+  </body>
+</html>

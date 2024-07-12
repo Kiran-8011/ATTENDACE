@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/public/styles.css" />
+    <style>
+      .sign {
+        display: flex;
+        justify-content: center;
+      }
+      form {
+        padding: 55px;
+        margin: 50px;
+      }
+      input[type="text"],
+      input[type="password"] {
+        width: 40%;
+        margin: 10px 5px 10px 0px;
+      }
+      button {
+        width: 20%;
+        margin: 10px 5px 10px 0px;
+      }
+      .cont {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to AttendAce!</h1>
+      <hr />
+      <h1>Login</h1>
+
+      <form method="post" action="/auth/login">
+        <div class="cont">
+          <input type="text" name="username" placeholder="Username" required />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <button type="submit">Login</button>
+        </div>
+      </form>
+      <div class="sign">
+        <h3>Not a User? <a href="/auth/signup">Signup</a></h3>
+      </div>
+    </div>
+  </body>
+</html>
